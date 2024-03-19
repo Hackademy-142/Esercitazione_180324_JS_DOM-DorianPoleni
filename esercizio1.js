@@ -9,7 +9,8 @@ let p = document.querySelectorAll("p");
 //ButtonHide
 buttonHide.addEventListener("click", ()=> {
     p.forEach( p => {
-        p.classList.toggle("d-none");
+        // p.classList.toggle("d-none"); //toglie l'elemento
+        p.classList.toggle("opacity-0"); //toglie solo la visibilità al testo
     })
 })
 

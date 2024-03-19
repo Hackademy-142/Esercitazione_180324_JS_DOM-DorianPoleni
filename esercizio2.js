@@ -24,7 +24,7 @@ people.forEach(person => {
     
     cardContainer.appendChild(personCard);
     
-    console.log(personCard)
+    // console.log(personCard)
 });
 
 
