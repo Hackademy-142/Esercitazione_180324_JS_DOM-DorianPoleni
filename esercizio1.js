@@ -18,7 +18,7 @@ buttonHide.addEventListener("click", ()=> {
 
 buttonChangeColors.addEventListener("click", () => {
     p.forEach( (p) => {
-        p.style.color = getRandomColorHex();
+        p.style.color = getRandomColorHex(); //Poso passare direttamente lo stile dell'elemento
         // p.style.color = `rgb(${r},${g},${b})`; 
     })
 });
