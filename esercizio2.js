@@ -1,5 +1,6 @@
 //Tag
 let insertButton = document.querySelector("#insertButton");
+let deleteButton = document.querySelector("#deleteButton");
 let inputName = document.querySelector("#inputName");
 let InputSurname = document.querySelector("#inputSurname");
 let cardContainer = document.querySelector("#cardContainer");
@@ -7,23 +8,43 @@ let deleteCard = document.querySelector("#deleteCard");
 
 let people = [
     {name: "Dorian", surname:"Poleni", age: "34", place: "Bergamo", img: "https://picsum.photos/200"},
-    {name: "Franco", surname:"Battiato", age: "35", place: "Ionia", img: "https://picsum.photos/201"},
+    {name: "Franco", surname:"Battiato", age: "35", place: "Ionia", img: "https://picsum.photos/201"}
 ];
 
 
-//Main
+
+
+
+
+
+
+
+//Main Program
+
+
+checkPeopleEmpty(people);
+createCard(people);
 
 insertButton.addEventListener("click", () => {
     addPerson(people);
     console.log(people);
     createCard(people);
+    checkPeopleEmpty(people);
+    
 });
 
-deleteCard.addEventListener("click", ()=>{
+
+//Delete Button
+
+deleteButton.addEventListener("click", () => {
+    // let filterName = "Franco"
+    deletePeople(people, inputName.value );
+    // console.log( inputName.value);
 
 })
 
 
+//Functions Declaration
 function createCard(people){
     
     //clean the container from cards
@@ -50,14 +71,21 @@ function createCard(people){
     });
 }
 
-createCard(people);
-
-
-//Function Declaration
 function addPerson(people){
     people.push({name: inputName.value, surname: InputSurname.value, age: "34", place: "Bergamo", img: "https://picsum.photos/200"});
 }
 
-function deletePerson(people){
-   
+function checkPeopleEmpty(people){
+    if (people.length > 0) {
+        deleteButton.classList.remove("d-none");
+    }else{
+        deleteButton.classList.add("d-none");
+    }
 }
+
+function deletePeople(people,filter){
+
+
+    people.splice(people.findIndex(person => person.name === filter) , 1);
+   console.log(people);
+    }
